@@ -70,7 +70,7 @@ Highlights of the App
 
 -   Vue 3's Composition API and Reactivity System: Prioritizing simplicity and readability. By doing so, it demonstrates that for many applications, a lightweight, direct approach without external state management solutions like Vuex can be incredibly effective. 
 
--   Efficient State Management: Showcases state management leveraging Vue 3's reactivity system, ensuring real-time updates across the app with minimal code. This highlights how well-designed reactivity can eliminate the need for Vuex, EventBus, or prop-drilling through router views for component communication, showcasing a streamlined and efficient approach to managing app state.
+-   Efficient State Management: This highlights how well-designed reactivity can eliminate the need for Vuex, EventBus, or prop-drilling through router views for component communication, showcasing a streamlined and efficient approach to managing app state.
 -   Component Design: Emphasizes modular and reusable components, showcasing best practices in Vue.js development.
 
 -   Effective data flow between components is achieved through the use of props (for passing down read-only data) and emits (for communication back to parent components), exemplifying best practices in Vue component architecture.
