@@ -5,7 +5,7 @@
       class="card mb-3"
       v-for="(task, index) in taskList"
       :key="index"
-      style="min-width: 300px; max-width: 350px"
+      style="max-width: 300px"
     >
       <div
         class="card-header d-flex justify-content-between align-items-center"
@@ -51,21 +51,21 @@
           <button
             type="button"
             class="btn btn-sm"
-            :class="{ 'btn-info': !task.done, 'btn-outline-info': task.done }"
+            :class="{ 'btn-secondary': !task.done, 'btn-outline-secondary': task.done }"
             @click="toggleState(task)"
           >
             {{ task.done ? "Undo" : "Done" }}
           </button>
           <button
             type="button"
-            class="btn btn-sm btn-danger"
+            class="btn btn-sm btn-secondary"
             @click="deleteTask(index)"
           >
             Delete
           </button>
           <button
             type="button"
-            class="btn btn-sm btn-warning"
+            class="btn btn-sm btn-secondary"
             @click="editTask(task)"
           >
             Edit
@@ -132,6 +132,25 @@ export default defineComponent({
   column-count: 4;
   column-gap: 20px;
   width: 100%;
+}
+@media (max-width: 1200px) {
+  .card-container {
+    column-count: 3;
+  }
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+  .card-container {
+    column-count: 2;
+  }
+}
+
+/* Single column layout for very small screens */
+@media (max-width: 480px) {
+  .card-container {
+    column-count: 1;
+  }
 }
 .card {
   display: inline-block;

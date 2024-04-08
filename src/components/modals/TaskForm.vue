@@ -57,7 +57,7 @@
             <div class="priorSelector">
               <label>Select Task Priority:</label>
               <select
-                class="form-select mb-1"
+                class="form-select"
                 v-model="task.priority"
                 style="font-weight: bold"
               >

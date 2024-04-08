@@ -79,4 +79,16 @@ Highlights of the App
 -   The app supports advanced task management through the creation of subtasks, allowing for granular control and organization of tasks.
 ------------
 
--   [Leave your suggestions or planned improvements here]
+Improvements
+------------------
+#### Form Validation
+
+-   Enhance Data Integrity: Implement stronger form validation to ensure task inputs meet our standards, potentially using Vuelidate for concise, declarative validation rules.
+
+#### Type Safety
+
+-   Adopt TypeScript: Transitioning to TypeScript can safeguard against type-related bugs, making our app more robust and easier to maintain by enforcing type safety.
+
+#### Method Refactoring and Abstraction
+
+-   Refactor for Reusability and Maintainability: Abstract common functionalities into reusable services, particularly for task operations such as create, update, and delete. This approach minimizes direct array manipulations and event emissions, centralizing logic for easier testing and scalability. Adopting patterns like the Repository pattern for daata handling can further modularize the code, making it cleaner and more adaptable to changes.

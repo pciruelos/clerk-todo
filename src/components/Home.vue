@@ -5,7 +5,8 @@
       <div class="card text-white bg-primary" style="width: 50%">
         <div class="card-body">
           <h2 class="card-title">Welcome!</h2>
-          <p class="card-text">Thank you for using our application.</p>
+          <p class="card-text">Using the To Do App is intuitive and user-friendly, ensuring your tasks stay updated and saved, even if you decide to close the browser.</p>
+          <p class="card-text">To add new tasks, use the navbar. There, you can enter task details and select a priority level (High, Medium, Low), then click the "Save" button. The priority affects the task's border color, making important tasks stand out visually.</p>
         </div>
       </div>
     </div>
