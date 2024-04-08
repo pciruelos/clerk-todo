@@ -7,46 +7,69 @@
       :key="index"
       style="min-width: 300px; max-width: 350px"
     >
-      <div class="card-header d-flex justify-content-between align-items-center">
+      <div
+        class="card-header d-flex justify-content-between align-items-center"
+      >
         <span>{{ task.subtitle }}</span>
-        <span v-if="task.done" class="badge bg-success" style="font-size: 15px;"
+        <span v-if="task.done" class="badge bg-success" style="font-size: 15px"
           >DONE</span
         >
       </div>
       <div class="card-body">
-        <h4 class="card-title" style="color:white">{{ task.title }}</h4>
+        <h4 class="card-title" style="color: white">{{ task.title }}</h4>
         <p class="card-text">{{ task.description }}</p>
-        <div v-if="task.subtasks && task.subtasks.some(subtask => subtask.item.trim())">
-          <h6 class="card-text" style="text-decoration: underline">Sub-tasks:</h6>
         <div
-          v-for="(subtask, subIndex) in task.subtasks"
-          :key="subIndex"
-          class="form-check"
+          v-if="
+            task.subtasks &&
+            task.subtasks.some((subtask) => subtask.item.trim())
+          "
         >
-          <input
-            class="form-check-input"
-            type="checkbox"
-            :id="'subtask-' + subIndex"
-            :checked="subtask.done"
-            @click="toggleState(subtask)"
-          />
-          <label
-            class="form-check-label"
-            :class="{ completed: subtask.done }"
-            :for="'subtask-' + subIndex"
-            >{{ subtask.item }}</label
+          <h6 class="card-text" style="text-decoration: underline">
+            Sub-tasks:
+          </h6>
+          <div
+            v-for="(subtask, subIndex) in task.subtasks"
+            :key="subIndex"
+            class="form-check"
           >
-        </div>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              :id="'subtask-' + subIndex"
+              :checked="subtask.done"
+              @click="toggleState(subtask)"
+            />
+            <label
+              class="form-check-label"
+              :class="{ completed: subtask.done }"
+              :for="'subtask-' + subIndex"
+              >{{ subtask.item }}</label
+            >
+          </div>
         </div>
         <div class="footerBtn">
           <button
-          type="button"
-          class="btn btn-sm"
-          :class="{ 'btn-info': !task.done, 'btn-outline-info': task.done }"
-          @click="toggleState(task)"
-        >{{ task.done ? 'Undo' : 'Done' }}</button>
-        <button type="button" class="btn btn-sm btn-danger" @click="deleteTask(index)">Delete</button>
-        <button type="button" class="btn btn-sm btn-warning" @click="editTask(task)">Edit</button>
+            type="button"
+            class="btn btn-sm"
+            :class="{ 'btn-info': !task.done, 'btn-outline-info': task.done }"
+            @click="toggleState(task)"
+          >
+            {{ task.done ? "Undo" : "Done" }}
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-danger"
+            @click="deleteTask(index)"
+          >
+            Delete
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-warning"
+            @click="editTask(task)"
+          >
+            Edit
+          </button>
         </div>
       </div>
     </div>
@@ -66,8 +89,8 @@ export default defineComponent({
   },
   data() {
     return {
-      updatedTaskList : [],
-      showModal : false,
+      updatedTaskList: [],
+      showModal: false,
     };
   },
   methods: {
@@ -84,36 +107,36 @@ export default defineComponent({
       }
     },
     deleteTask(index) {
-      this.updatedTaskList = this.taskList
+      this.updatedTaskList = this.taskList;
       this.updatedTaskList.splice(index, 1);
-      alert("are u sure ?")
+      alert("task has been deleted");
       this.$emit("taskDeleted", this.updatedTaskList);
     },
     toggleState(item) {
       item.done = !item.done;
-      this.updatedTaskList = this.taskList
-      this.$emit('taskStatusChanged', this.updatedTaskList);
-  },
+      this.updatedTaskList = this.taskList;
+      this.$emit("taskStatusChanged", this.updatedTaskList);
+    },
     editTask(task) {
-    this.$emit("taskForEdit", task)
-  },
+      this.$emit("taskForEdit", task);
+    },
     hideModal() {
-    this.showModal = false;
-  }
+      this.showModal = false;
+    },
   },
 });
 </script>
 
 <style scoped>
 .card-container {
- column-count: 4; /* Adjust based on the desired number of columns */
+  column-count: 4;
   column-gap: 20px;
-  width: 100%; /* Ensure the container fills its parent's width */
+  width: 100%;
 }
 .card {
-    display: inline-block; /* Allows the card to flow within the column */
-  width: 100%; /* Each card takes the full width of the column */
-  margin-bottom: 20px; /* Adjust space between cards */
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 20px;
   break-inside: avoid;
 }
 .completed {
@@ -129,7 +152,7 @@ export default defineComponent({
 .customCenter {
   margin: 0;
 }
-.paddingTextComplete{
+.paddingTextComplete {
   padding-left: 5px;
 }
 .footerBtn {
@@ -139,4 +162,3 @@ export default defineComponent({
   padding-top: 15px;
 }
 </style>
-
